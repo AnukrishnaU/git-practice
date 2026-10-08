@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Her Little World 🤎</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --brown: #5a3825;
+      --dark-brown: #2d1b13;
+      --cream: #f8f0e5;
+      --beige: #ead9c5;
+      --pink: #d8a99b;
+      --light-pink: #f1d8d1;
+      --white: #fffaf4;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--dark-brown);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 22px 7%;
+
+      background: rgba(248, 240, 229, 0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: "Great Vibes", cursive;
+      font-size: 32px;
+      color: var(--brown);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark-brown);
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--pink);
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 8% 80px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+
+      background:
+        radial-gradient(circle at 80% 20%, #e5c1b7 0%, transparent 25%),
+        radial-gradient(circle at 10% 80%, #dfc4a7 0%, transparent 25%),
+        var(--cream);
+    }
+
+    .hero-text {
+      max-width: 650px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .small-title {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--brown);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(65px, 9vw, 120px);
+      line-height: 0.85;
+      font-weight: 500;
+    }
+
+    h1 span {
+      color: var(--pink);
+      font-style: italic;
+    }
+
+    .hero-text p {
+      margin-top: 30px;
+      max-width: 500px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: #6d5345;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+
+      background: var(--brown);
+      color: white;
+
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-4px);
+      background: var(--dark-brown);
+    }
+
+    /* Hero image */
+
+    .hero-image {
+      width: min(400px, 80vw);
+      height: 520px;
+
+      border-radius: 220px 220px 20px 20px;
+
+      background:
+        linear-gradient(rgba(60,30,20,.1), rgba(60,30,20,.2)),
+        url("https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      box-shadow: 25px 25px 0 var(--beige);
+
+      animation: float 5s ease-in-out infinite;
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    section {
+      padding: 110px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title small {
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .section-title h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 65px;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    .about {
+      background: var(--white);
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 29px;
+      line-height: 1.5;
+      color: #634738;
+    }
+
+    .quote {
+      margin-top: 35px;
+      font-family: "Great Vibes", cursive;
+      color: var(--pink);
+      font-size: 35px;
+    }
+
+    /* ---------- PASSIONS ---------- */
+
+    .passions {
+      background: var(--cream);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      min-height: 300px;
+      padding: 30px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      border-radius: 150px 150px 20px 20px;
+
+      color: white;
+      position: relative;
+      overflow: hidden;
+
+      transition: 0.5s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(30,15,10,.75));
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 38px;
+    }
+
+    .card p {
+      font-size: 13px;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .travel {
+      background: url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80") center/cover;
+    }
+
+    .dance {
+      background: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=700&q=80") center/cover;
+    }
+
+    .sing {
+      background: url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=80") center/cover;
+    }
+
+    .draw {
+      background: url("https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=700&q=80") center/cover;
+    }
+
+    /* ---------- DREAMS ---------- */
+
+    .dreams {
+      background: var(--brown);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .dreams .section-title small {
+      color: var(--light-pink);
+    }
+
+    .dreams .section-title h2 {
+      color: white;
+    }
+
+    .dream-text {
+      max-width: 800px;
+      margin: auto;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 35px;
+      line-height: 1.5;
+    }
+
+    .dream-list {
+      margin-top: 50px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .dream-list span {
+      padding: 12px 22px;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 30px;
+      transition: .3s;
+    }
+
+    .dream-list span:hover {
+      background: var(--pink);
+      border-color: var(--pink);
+    }
+
+    /* ---------- GALLERY ---------- */
+
+    .gallery {
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      max-width: 1000px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-rows: 250px;
+      gap: 15px;
+    }
+
+    .gallery-grid div {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.08);
+    }
+
+    .gallery-grid div:nth-child(2) {
+      grid-row: span 2;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 80px 20px;
+      text-align: center;
+      background: var(--dark-brown);
+      color: var(--cream);
+    }
+
+    footer h2 {
+      font-family: "Great Vibes", cursive;
+      font-size: 55px;
+      font-weight: 400;
+    }
+
+    footer p {
+      margin-top: 15px;
+      color: #cbb8a9;
+    }
+
+    .heart {
+      color: var(--pink);
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 850px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 130px;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-image {
+        width: 300px;
+        height: 400px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      section {
+        padding: 80px 6%;
+      }
+
+      .section-title h2 {
+        font-size: 50px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+      }
+
+      .gallery-grid div:nth-child(2) {
+        grid-row: span 1;
+      }
+
+      .dream-text {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">her.</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#passions">Passions</a></li>
+      <li><a href="#dreams">Dreams</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <div class="small-title">
+        Welcome to her little world
+      </div>
+
+      <h1>
+        She is<br>
+        <span>becoming.</span>
+      </h1>
+
+      <p>
+        A girl with big dreams, a curious heart,
+        music in her soul and a passport full of
+        places she hasn't visited yet.
+      </p>
+
+      <a href="#about" class="hero-btn">
+        Discover her story ↓
+      </a>
+
+    </div>
+
+    <div class="hero-image"></div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <small>Her story</small>
+      <h2>Just a little about her</h2>
+    </div>
+
+    <div class="about-content">
+
+      <p>
+        She is soft but strong, dreamy but determined.
+        She finds happiness in little things — a new city,
+        a beautiful song, dancing until she forgets the time,
+        and filling blank pages with colors.
+      </p>
+
+      <div class="quote">
+        "She believed she could, so she did."
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PASSIONS -->
+  <section class="passions" id="passions">
+
+    <div class="section-title">
+      <small>The things she loves</small>
+      <h2>Her little passions</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card travel">
+        <div class="card-content">
+          <h3>Travel</h3>
+          <p>
+            Collecting places, sunsets and memories.
+          </p>
+        </div>
+      </div>
+
+      <div class="card dance">
+        <div class="card-content">
+          <h3>Dance</h3>
+          <p>
+            When words aren't enough, she dances.
+          </p>
+        </div>
+      </div>
+
+      <div class="card sing">
+        <div class="card-content">
+          <h3>Sing</h3>
+          <p>
+            Turning feelings into little melodies.
+          </p>
+        </div>
+      </div>
+
+      <div class="card draw">
+        <div class="card-content">
+          <h3>Draw</h3>
+          <p>
+            Making the imagination visible.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DREAMS -->
+  <section class="dreams" id="dreams">
+
+    <div class="section-title">
+      <small>Her future</small>
+      <h2>She dreams big.</h2>
+    </div>
+
+    <p class="dream-text">
+      She doesn't want an ordinary life.
+      She wants to explore, create, learn,
+      become independent and build a life
+      that makes her younger self proud.
+    </p>
+
+    <div class="dream-list">
+      <span>✈️ See the world</span>
+      <span>🎓 Learn endlessly</span>
+      <span>💼 Build a career</span>
+      <span>🎨 Create</span>
+      <span>💃 Keep dancing</span>
+      <span>🌙 Chase dreams</span>
+    </div>
+
+  </section>
+
+
+  <!-- PHOTO GALLERY -->
+  <section class="gallery">
+
+    <div class="section-title">
+      <small>Little moments</small>
+      <h2>A life worth remembering</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=800&q=80"
+          alt="Travel"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80"
+          alt="Portrait"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+          alt="Beach"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
+          alt="Music"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"
+          alt="Art"
+        >
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h2>Keep becoming.</h2>
+
+    <p>
+      Made with <span class="heart">♥</span> and a little bit of magic.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
